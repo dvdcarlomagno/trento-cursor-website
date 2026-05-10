@@ -36,6 +36,7 @@ export interface Partner {
 	url: string;
 	logoBg?: string;
 	logoHeight?: string;
+	invertOnDark?: boolean;
 }
 
 export interface FeaturedResource {
@@ -43,6 +44,14 @@ export interface FeaturedResource {
 	description: string;
 	href: string;
 	ctaLabel: string;
+}
+
+export interface FeaturedProject {
+	name: string;
+	description: string;
+	url: string;
+	author?: string;
+	coverImage?: string;
 }
 
 export interface HeaderPhoto {

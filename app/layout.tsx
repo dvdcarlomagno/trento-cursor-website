@@ -5,11 +5,12 @@ import { siteConfig } from '@/content/site.config';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: `${siteConfig.communityName} | Cursor Ambassador Site`,
-	description: 'Reusable Cursor Ambassador website template for local communities.',
+	title: `${siteConfig.communityName} | Cursor Ambassador Community`,
+	description: `Official community hub for Cursor events and recaps in ${siteConfig.city}.`,
 	openGraph: {
 		title: siteConfig.communityName,
-		description: 'Reusable Cursor Ambassador website template for local communities.',
+		description: `Official community hub for Cursor events and recaps in ${siteConfig.city}.`,
+		url: siteConfig.siteUrl,
 		type: 'website',
 	},
 };

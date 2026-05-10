@@ -80,13 +80,8 @@ export default function Navbar() {
               priority
               className="h-6 md:h-8 w-auto"
             />
-            <span className="font-cursor text-lg md:text-xl font-semibold tracking-tight text-cursor-text">
-              {siteConfig.communityName}
-              {siteConfig.communityNameLocal ? (
-                <span className="font-thai font-bold tracking-wide text-xl md:text-2xl text-cursor-text-secondary ml-2">
-                  {siteConfig.communityNameLocal}
-                </span>
-              ) : null}
+            <span className="font-thai font-bold tracking-wide text-xl md:text-2xl text-cursor-text-secondary">
+              {siteConfig.communityNameLocal || siteConfig.communityName}
             </span>
           </a>
 

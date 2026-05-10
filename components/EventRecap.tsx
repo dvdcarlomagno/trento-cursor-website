@@ -13,7 +13,12 @@ interface EventRecapProps {
 }
 
 const EventRecap: React.FC<EventRecapProps> = ({ recap }) => {
-	const { t } = useI18n();
+	const { t, locale } = useI18n();
+	const displayDate = new Date(`${recap.date}T00:00:00`).toLocaleDateString(locale, {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
 
 	return (
 		<motion.section
@@ -24,7 +29,7 @@ const EventRecap: React.FC<EventRecapProps> = ({ recap }) => {
 		>
 			<div className="bg-[#1B1913] border border-cursor-border rounded-lg p-8">
 				<h2 className="text-xl font-semibold text-cursor-text mb-2">{recap.title}</h2>
-				<p className="text-cursor-text-muted text-sm mb-6">{recap.date}</p>
+				<p className="text-cursor-text-muted text-sm mb-6">{displayDate}</p>
 
 				{recap.host ? (
 					<div className="text-cursor-text-muted text-sm mb-6 flex items-center gap-2">

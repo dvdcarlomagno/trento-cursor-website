@@ -1,0 +1,79 @@
+{
+	"nav": {
+		"joinUs": "Partecipa"
+	},
+	"home": {
+		"featured": "In evidenza",
+		"featuredProjects": "Progetti della community",
+		"featuredProjectsHeading": "Progetti in evidenza",
+		"upcomingEvents": "Prossimi eventi",
+		"upcomingHeading": "Cosa c'è in arrivo",
+		"register": "Registrati",
+		"pastEvents": "Eventi passati",
+		"pastEventsHeading": "Recap eventi",
+		"sponsors": "Sponsor",
+		"sponsorsHeading": "Supportato dai nostri sponsor",
+		"submitProject": "Invia il tuo progetto via PR",
+		"projectBy": "Di",
+		"communityBuilder": "Builder della community",
+		"attendees": "{count} partecipanti",
+		"hostedBy": "Ospitato da",
+		"viewRecap": "Vedi recap"
+	},
+	"ambassadors": {
+		"title": "Ambassador di {communityName}",
+		"heading": "Scopri il team"
+	},
+	"footer": {
+		"hostingPartners": "Partner ospitanti",
+		"community": "Cursor Community",
+		"allEvents": "Unisciti alla community Telegram",
+		"madeWith": "Creato con Cursor dalla community ambassador di Trento",
+		"joinNext": "Partecipa al prossimo evento",
+		"followUs": "Segui Cursor su X"
+	},
+	"featured": {
+		"defaultDescription": "Una serie di workshop pratici per chi vuole imparare Cursor attraverso workflow reali."
+	},
+	"recap": {
+		"title": "Recap evento",
+		"speakers": "Speaker",
+		"projects": "Progetti presentati",
+		"highlights": "Feedback della community",
+		"resources": "Risorse",
+		"by": "di",
+		"galleryTitle": "Foto",
+		"gallerySubtitle": "{count} foto dall'evento",
+		"openPhoto": "Apri foto {index}",
+		"closeGallery": "Chiudi galleria",
+		"prevPhoto": "Foto precedente",
+		"nextPhoto": "Foto successiva",
+		"photoLabel": "Foto {index} di {total}"
+	},
+	"photos": {
+		"title": "Nota sulle foto",
+		"description": "Durante l'evento scatteremo foto e video per i social e per i contenuti futuri della Cursor Community.",
+		"preference": "Se preferisci non essere fotografato:",
+		"option1": "Avvisa l'host quando arrivi",
+		"option2": "Rispetteremo la tua preferenza",
+		"thanks": "Grazie per la comprensione."
+	},
+	"matchmaking": {
+		"title": "Vuoi conoscere nuove persone?",
+		"howItWorks": "Come funziona",
+		"step1": "Passa al tavolo host e prendi una {numberCard} (1-10)",
+		"step2": "Trova chi ha {sameNumber}",
+		"step3": "Sedetevi insieme e co-lavorate",
+		"iceBreakers": "Domande per rompere il ghiaccio",
+		"question1": "\"Hai gia usato Cursor?\"",
+		"question2": "\"Stai costruendo qualcosa di interessante con Cursor?\"",
+		"question3": "\"Qual e la tua feature preferita di Cursor?\"",
+		"numberCard": "carta con numero casuale",
+		"sameNumber": "lo stesso numero"
+	},
+	"worldEvents": {
+		"title": "Cursor in Italia",
+		"subtitle": "Eventi nazionali della community",
+		"description": "Una panoramica dei meetup Cursor nelle principali citta italiane."
+	}
+}

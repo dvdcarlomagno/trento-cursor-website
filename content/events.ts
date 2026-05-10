@@ -1,26 +1,16 @@
 import { CursorEvent } from '@/lib/types';
 
-// REPLACE: Replace all sample events, locations, and Luma URLs with real community events.
 export const events: CursorEvent[] = [
 	{
-		id: 'cafe-cursor-example-1',
-		title: 'Cafe Cursor YourCity',
-		date: '2026-03-21',
-		displayDate: 'March 21, 2026',
-		location: 'Your City, Your Country',
-		lumaUrl: 'https://lu.ma/example-event-1',
-		status: 'upcoming',
-	},
-	{
-		id: 'cursor-seminar-yourcity',
-		title: 'Cursor Seminar YourCity',
-		date: '2026-02-14',
-		displayDate: 'February 14, 2026',
-		attendees: 38,
-		location: 'Your City, Your Country',
-		recapPath: '/recaps/example-event',
-		thumbnail: '/images/events/cursor-event-01.jpg',
-		galleryImages: ['/images/events/cursor-event-02.jpg', '/images/events/cursor-event-04.jpg'],
+		id: 'cursor-meetup-trento-1',
+		title: 'Cursor Meetup Trento #1',
+		date: '2026-01-28',
+		displayDate: 'January 28, 2026',
+		attendees: 114,
+		location: 'Trento, Italy',
+		recapPath: '/recaps/cursor-meetup-trento-1',
+		thumbnail: '/images/events/event-thumb.jpg',
+		galleryImages: ['/images/events/event-gallery-1.jpg', '/images/events/event-gallery-2.jpg'],
 		status: 'past',
 	},
 ];

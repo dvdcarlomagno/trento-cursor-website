@@ -4,46 +4,6 @@
 @source "../components";
 @source "../modules";
 
-@font-face {
-	font-family: 'BSRU Pro';
-	src: url('/fonts/BSRU Pro Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'CursorGothic';
-	src: url('/fonts/CursorGothic-Regular.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'CursorGothic';
-	src: url('/fonts/CursorGothic-Italic.woff2') format('woff2');
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'CursorGothic';
-	src: url('/fonts/CursorGothic-Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'CursorGothic';
-	src: url('/fonts/CursorGothic-BoldItalic.woff2') format('woff2');
-	font-weight: 700;
-	font-style: italic;
-	font-display: swap;
-}
-
 @theme {
 	--color-cursor-bg: #14120b;
 	--color-cursor-bg-dark: #0f0d06;
@@ -69,10 +29,10 @@
 	--color-cursor-accent-yellow-bg: rgba(42, 36, 24, 0.3);
 	--color-cursor-accent-orange-bg: rgba(42, 32, 24, 0.3);
 
-	--font-sans: 'CursorGothic', system-ui, sans-serif;
+	--font-sans: 'Thasadith', system-ui, sans-serif;
 	--font-mono: 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-	--font-cursor: 'CursorGothic', system-ui, sans-serif;
-	--font-bsru: 'BSRU Pro', sans-serif;
+	--font-cursor: 'Thasadith', system-ui, sans-serif;
+	--font-bsru: 'Thasadith', sans-serif;
 	--font-thai: 'Thasadith', sans-serif;
 
 	--animate-fade-in: fade-in 0.5s ease-out forwards;

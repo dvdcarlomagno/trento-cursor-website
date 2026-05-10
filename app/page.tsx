@@ -4,10 +4,10 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroHeader from '@/components/HeroHeader';
 import AmbassadorSection from '@/components/AmbassadorSection';
-import FeaturedSection from '@/components/FeaturedSection';
+import FeaturedProjectsSection from '@/components/FeaturedProjectsSection';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import PastEvents from '@/components/PastEvents';
-import GlobalEvents from '@/components/GlobalEvents';
+import SponsorsSection from '@/components/SponsorsSection';
 import SectionDivider from '@/components/SectionDivider';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
@@ -51,13 +51,13 @@ const Home: React.FC = () => {
 			<div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
 				<AmbassadorSection />
 				<SectionDivider />
-				<FeaturedSection />
+				<FeaturedProjectsSection />
 				<SectionDivider />
 				<UpcomingEvents />
 				<SectionDivider />
 				<PastEvents />
 				<SectionDivider />
-				<GlobalEvents />
+				<SponsorsSection />
 				<Footer />
 			</div>
 		</main>

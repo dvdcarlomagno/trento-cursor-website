@@ -7,11 +7,11 @@ import { ExternalLink } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { siteConfig } from '@/content/site.config';
 import { upcomingEvents } from '@/content/events';
-import Partners from '@/components/Partners';
 
 const Footer: React.FC = () => {
 	const { t } = useI18n();
 	const nextEvent = upcomingEvents[0];
+	const showCommunityLink = siteConfig.cursorCommunityUrl !== siteConfig.lumaUrl;
 
 	return (
 		<motion.footer
@@ -21,8 +21,6 @@ const Footer: React.FC = () => {
 			transition={{ duration: 0.5 }}
 			className="mt-24 pt-8 border-t border-cursor-border"
 		>
-			<Partners />
-
 			<div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
 				{/* Branding */}
 				<div>
@@ -54,24 +52,17 @@ const Footer: React.FC = () => {
 						{t('footer.allEvents')}
 						<ExternalLink className="w-3 h-3" />
 					</a>
-					<a
-						href={siteConfig.cursorCommunityUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-sm text-cursor-text-secondary hover:text-cursor-text transition-colors inline-flex items-center gap-1.5"
-					>
-						{t('footer.community')}
-						<ExternalLink className="w-3 h-3" />
-					</a>
-					<a
-						href="https://x.com/cursor_ai"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-sm text-cursor-text-secondary hover:text-cursor-text transition-colors inline-flex items-center gap-1.5"
-					>
-						{t('footer.followUs')}
-						<ExternalLink className="w-3 h-3" />
-					</a>
+					{showCommunityLink ? (
+						<a
+							href={siteConfig.cursorCommunityUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-sm text-cursor-text-secondary hover:text-cursor-text transition-colors inline-flex items-center gap-1.5"
+						>
+							{t('footer.community')}
+							<ExternalLink className="w-3 h-3" />
+						</a>
+					) : null}
 				</div>
 
 				{/* CTA */}

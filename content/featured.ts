@@ -1,9 +1,9 @@
 import { FeaturedResource } from '@/lib/types';
 
-// REPLACE: Customize the featured card text and destination for your community.
 export const featuredResource: FeaturedResource = {
-	title: 'Seminar Slides for the Event',
-	description: 'A practical, hands-on workshop series for builders who want to learn Cursor with real workflows.',
-	href: '/slides/1',
-	ctaLabel: 'View Slides',
+	title: 'Cursor Meetup Trento #1',
+	description:
+		'Read the recap of our first Trento meetup with talks, Q&A, and community highlights.',
+	href: '/recaps/cursor-meetup-trento-1',
+	ctaLabel: 'Read Recap',
 };

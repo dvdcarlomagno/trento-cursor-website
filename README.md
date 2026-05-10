@@ -1,8 +1,8 @@
-# Cursor Ambassador Evergreen Template
+# Cursor Meetup Trento Website
 
 ![Cursor Ambassador Banner](public/images/readme-banner.png)
 
-This repository is a configurable Next.js template for Cursor Ambassador community sites.
+Official website for the Trento Cursor community meetup.
 
 ## Quick Start
 
@@ -13,202 +13,88 @@ pnpm run dev
 
 Open `http://localhost:3000`.
 
-## Project Structure
+## What You Can Edit
 
-### App routes
+Only these areas are intended for content updates:
 
-- `app/page.tsx`: homepage composition (hero, featured, events, ambassadors, partners, world events).
-- `app/recaps/[slug]/page.tsx`: dynamic recap page route.
-- `app/slides/[id]/page.tsx`: optional workshop slides route.
+### 1) Featured projects (homepage)
 
-### Core components
+File: `content/featured-projects.ts`
 
-- `components/HeroHeader.tsx`: top section + bento photo grid.
-- `components/FeaturedSection.tsx`: featured resource card.
-- `components/UpcomingEvents.tsx` and `components/PastEvents.tsx`: event lists.
-- `components/AmbassadorSection.tsx`: ambassador cards.
-- `components/Partners.tsx`: hosting partner cards/logos.
-- `components/WorldEventsCarousel.tsx`: global event photos.
+You can edit:
+- `name`
+- `description`
+- `url`
+- `author`
+- `coverImage`
+- `featuredProjectsPrUrl`
 
-### Content-driven configuration (`content/`)
+### 2) Event details
 
-This template is content-first. Most customization is done by editing files in `content/`.
+Primary file: `content/events.ts`
 
-- `content/site.config.ts`: global site settings (community name, city/country, URLs, locales, footer text).
-- `content/header-photos.ts`: hero bento images (`src`, `alt`, `span`, `mobileHidden`).
-- `content/featured.ts`: featured card text + CTA.
-- `content/events.ts`: upcoming/past events and recap links.
-- `content/ambassadors.ts`: ambassador data and social links.
-- `content/partners.ts`: host/sponsor logos and URLs.
-- `content/world-events.ts`: world carousel entries.
-- `content/recaps/*.ts`: recap documents rendered by slug.
-- `content/locales/*.json`: translation dictionaries.
-- `content/locales/index.ts`: locale bundle registry consumed by `lib/i18n.tsx`.
+You can edit:
+- event `title`
+- `date` and `displayDate`
+- `attendees`
+- `location`
+- `lumaUrl`
+- `thumbnail`
+- `galleryImages`
+- `status`
+- `recapPath`
 
-## Customization Guide
+Recap content file: `content/recaps/cursor-meetup-trento-1.ts`
 
-### 1) Site identity
+You can edit:
+- recap `title`, `date`, `attendees`
+- `summary`
+- `highlights`
+- `resources`
+- `photos`
+- host metadata (`name`, `logo`, `url`)
 
-Edit `content/site.config.ts`:
+## What You Should NOT Edit
 
-- `communityName`, `communityNameLocal`, `city`, `country`
-- `lumaUrl`, `cursorCommunityUrl`
-- `defaultLocale`, `locales`
-- `footerTagline`
+To avoid breaking the website structure/design, do not edit these unless you are doing development work:
 
-### 2) Hero bento grid
+- `app/page.tsx`
+- `components/*`
+- `lib/*`
+- `app/recaps/[slug]/page.tsx`
+- `content/locales/*`
+- `content/site.config.ts`
 
-Edit `content/header-photos.ts`.
+If you need layout changes, create a dev task/PR instead of direct content edits.
 
-Each entry uses explicit grid coordinates (1-indexed) for deterministic placement on a 4-column x 4-row grid:
+## Images
 
-- `src`: image path/URL
-- `alt`: accessibility text
-- `row`, `col`: starting row and column (required)
-- `rowSpan`, `colSpan`: how many rows/columns the tile occupies (default 1)
-- `mobile`: optional `{ row, col, rowSpan?, colSpan? }` override for the 2-column mobile grid
-- `mobileHidden`: optional boolean to hide on small screens
+- Event images live in `public/images/events/`
+- Sponsor logos live in `public/images/partners/`
+- Use local image paths (for example `/images/events/event-thumb.jpg`)
+- Keep images optimized for web (compressed JPG/PNG/WebP)
 
-Use local assets in `public/images/` for portability.
+## Vercel Deployment (Ready)
 
-### 3) Events and recaps
+This project is ready to deploy on Vercel as-is:
 
-Edit `content/events.ts`.
+- Framework: Next.js (App Router)
+- Build command: `pnpm run build`
+- Output: automatic Next.js output
+- Remote image domains: not required (local assets only)
 
-- `status: 'upcoming' | 'past'` controls which list renders the event.
-- `lumaUrl` is used for registration links.
-- `recapPath` connects a past event to a recap route (for example `/recaps/example-event`).
-- `thumbnail` is shown in past event cards.
+### Deploy Steps
 
-To add a recap:
+1. Push repository to GitHub.
+2. Import project in Vercel.
+3. Keep default settings (`pnpm`, Next.js auto-detected).
+4. Deploy.
 
-1. Add a recap file in `content/recaps/`.
-2. Ensure the recap exports a valid recap object with a matching `slug`.
-3. Add `recapPath` in the corresponding event.
-
-### 4) Optional slides
-
-Slides are optional and live in `modules/slides/`.
-
-- Data source: `modules/slides/content/example-deck.tsx`
-- Route: `app/slides/[id]/page.tsx`
-
-If your community does not use slides, remove links to `/slides/*` from content.
-
-### 5) Ambassadors and partners
-
-- `content/ambassadors.ts`: `name`, optional `role`, `photo`, and links (`x`, `linkedin`, `github`, `website`).
-- `content/partners.ts`: partner `name`, `logo`, `url`, optional `logoBg`, optional `logoHeight`.
-
-Local SVG logos in `public/images/partners/` are recommended.
-
-### 6) World events carousel
-
-Edit `content/world-events.ts` entries (`src`, `location`, `date`, `alt`).
-
-`components/WorldEventsCarousel.tsx` renders this list directly.
-
-## Locale / i18n
-
-### Current model
-
-- Runtime provider: `lib/i18n.tsx`
-- Dictionaries: `content/locales/*.json`
-- Bundle registry: `content/locales/index.ts`
-- Config gate: `siteConfig.locales`
-
-Language toggle appears when `siteConfig.locales.length > 1`.
-
-### Add a second locale
-
-1. Create `content/locales/xx.json` (for example `th.json`).
-2. Register it in `content/locales/index.ts`.
-3. Add `'xx'` to `siteConfig.locales`.
-4. Optionally set `defaultLocale` to `'xx'`.
-
-Example `content/locales/index.ts`:
-
-```ts
-import en from './en.json';
-import th from './th.json';
-
-export const localeBundles = {
-  en,
-  th,
-} as const;
-```
-
-### Translation keys and params
-
-Use `t('path.to.key', params)` from `useI18n()`.
-
-- Dot-path keys: `t('home.upcomingEvents')`
-- Parameter replacement: `t('home.attendees', { count: '42' })` for strings like `"{count} attendees"`
-
-If a key is missing, the function returns the key path (useful for spotting missing translations).
-
-## Add or Remove Sections
-
-Homepage order is defined in `app/page.tsx`.
-
-- Remove a section by deleting the component from the page.
-- Add a section by creating a component and inserting it in `app/page.tsx`.
-
-Keep content source files aligned with any component changes.
-
-## Image Strategy
-
-This template currently uses local images in `public/images/` for:
-
-- hero event photos
-- world events photos
-- ambassadors
-- partner logos
-
-With fully local images, `next.config.js` does not need remote image domains.
-
-## Deployment
-
-### Vercel
-
-1. Push to GitHub.
-2. Import repository in Vercel.
-3. Deploy with default Next.js settings.
-
-### Other platforms
-
-Build command:
+### Local Verification Before Deploy
 
 ```bash
 pnpm run build
 ```
-
-Start command:
-
-```bash
-pnpm run start
-```
-
-## Contributing
-
-See `CONTRIBUTING.md`.
-
-## Sites Using This Template
-
-- [cursorthailand.com](https://cursorthailand.com)
-- [cursorserbia.com](https://cursorserbia.com)
-- [cursorcroatia.com](https://cursorcroatia.com)
-- [cursorsrilanka.com](https://cursorsrilanka.com)
-- [cursoraustria.com](https://cursoraustria.com)
-- [cursorgermany.com](https://cursorgermany.com)
-- [cursorslc.com](https://cursorslc.com)
-- [cursorelsalvador.com](https://cursorelsalvador.com)
-
-Using this template? Open a PR to add your site here.
-
-## Credits
-
-Designed and implemented by [Luis Fernando Romero Calero](https://lfrc.me) and [Cursor](https://cursor.com).
 
 ## License
 

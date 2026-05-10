@@ -1,15 +1,14 @@
-// REPLACE: Update these values for your local Cursor community.
-// REPLACE: Keep links and names community-specific.
 export const siteConfig = {
-	communityName: 'Cursor Community',
-	communityNameLocal: 'YourCity',
-	city: 'Your City',
-	country: 'Your Country',
-	lumaUrl: 'https://lu.ma/cursor-community',
-	cursorCommunityUrl: 'https://cursor.com/community',
-	defaultLocale: 'en',
-	locales: ['en'],
-	footerTagline: 'Made with Cursor by ambassadors worldwide',
+	communityName: 'Cursor Trento',
+	communityNameLocal: 'Trento',
+	city: 'Trento',
+	country: 'Italy',
+	siteUrl: 'https://trento.cursor-italy.com',
+	lumaUrl: 'https://t.me/+M3CbnM7gCFcxYmY8',
+	cursorCommunityUrl: 'https://t.me/+M3CbnM7gCFcxYmY8',
+	defaultLocale: 'en-US',
+	locales: ['en-US', 'it'],
+	footerTagline: 'Built with Cursor by the Trento ambassador community',
 };
 
 export type SiteConfig = typeof siteConfig;

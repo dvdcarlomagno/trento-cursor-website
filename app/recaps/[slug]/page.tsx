@@ -53,7 +53,7 @@ function buildRecapJsonLd(slug: string) {
 			: {}),
 		...(recap.photos[0]?.src ? { image: recap.photos[0].src } : {}),
 		eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-		eventStatus: 'https://schema.org/EventScheduled',
+		eventStatus: 'https://schema.org/EventCompleted',
 	};
 }
 
