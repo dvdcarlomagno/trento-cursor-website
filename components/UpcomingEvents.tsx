@@ -8,11 +8,7 @@ import { useI18n } from '@/lib/i18n';
 
 const UpcomingEvents: React.FC = () => {
 	const { t, locale } = useI18n();
-
-	if (upcomingEvents.length === 0) {
-		return null;
-	}
-
+	const hasUpcoming = upcomingEvents.length > 0;
 	const [featured, ...rest] = upcomingEvents;
 
 	const formatDate = (date: string, style: 'short' | 'long' = 'short') =>
@@ -22,7 +18,7 @@ const UpcomingEvents: React.FC = () => {
 			day: 'numeric',
 		});
 
-	const city = featured.location.split(',')[0].trim();
+	const city = featured?.location.split(',')[0].trim();
 
 	return (
 		<motion.section
@@ -40,7 +36,7 @@ const UpcomingEvents: React.FC = () => {
 				{t('home.upcomingHeading')}
 			</h2>
 
-			{/* Featured first event */}
+			{/* Featured first event / Coming soon fallback */}
 			<motion.div
 				initial={{ opacity: 0, y: 10 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -50,31 +46,40 @@ const UpcomingEvents: React.FC = () => {
 			>
 				{/* Glow backdrop */}
 				<div className="pointer-events-none absolute -inset-px rounded-lg bg-[radial-gradient(ellipse_at_bottom_left,rgba(168,180,200,0.06),transparent_60%)]" />
-				<div className="flex items-center gap-2 text-sm text-cursor-text-muted mb-2">
-					<span className="relative flex h-2.5 w-2.5">
-						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cursor-accent-blue opacity-75" />
-						<span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cursor-accent-blue" />
-					</span>
-					<span>{formatDate(featured.date, 'long')}</span>
-					<span className="text-cursor-text-faint">&middot;</span>
-					<span>{city}</span>
-				</div>
-				<h3 className="text-2xl font-bold text-cursor-text mb-3">{featured.title}</h3>
-				{featured.lumaUrl ? (
-					<a
-						href={featured.lumaUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 bg-cursor-text text-cursor-bg rounded-md px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
-					>
-						{t('home.register')}
-						<ExternalLink className="w-3.5 h-3.5" />
-					</a>
-				) : null}
+				{hasUpcoming && featured ? (
+					<>
+						<div className="flex items-center gap-2 text-sm text-cursor-text-muted mb-2">
+							<span className="relative flex h-2.5 w-2.5">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cursor-accent-blue opacity-75" />
+								<span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cursor-accent-blue" />
+							</span>
+							<span>{formatDate(featured.date, 'long')}</span>
+							<span className="text-cursor-text-faint">&middot;</span>
+							<span>{city}</span>
+						</div>
+						<h3 className="text-2xl font-bold text-cursor-text mb-3">{featured.title}</h3>
+						{featured.lumaUrl ? (
+							<a
+								href={featured.lumaUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center gap-2 bg-cursor-text text-cursor-bg rounded-md px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
+							>
+								{t('home.register')}
+								<ExternalLink className="w-3.5 h-3.5" />
+							</a>
+						) : null}
+					</>
+				) : (
+					<div className="text-cursor-text">
+						<h3 className="text-2xl font-bold mb-2">{t('home.comingSoon')}</h3>
+						<p className="text-sm text-cursor-text-muted">{t('home.upcomingEvents')}</p>
+					</div>
+				)}
 			</motion.div>
 
 			{/* Remaining events */}
-			{rest.length > 0 && (
+			{hasUpcoming && rest.length > 0 && (
 				<div className="divide-y divide-cursor-border">
 					{rest.map((event, index) => {
 						const shortDate = formatDate(event.date);
