@@ -10,10 +10,6 @@ import { useI18n } from '@/lib/i18n';
 const FeaturedProjectsSection: React.FC = () => {
 	const { t } = useI18n();
 
-	if (featuredProjects.length === 0) {
-		return null;
-	}
-
 	return (
 		<motion.section
 			id="featured-projects"
@@ -30,38 +26,40 @@ const FeaturedProjectsSection: React.FC = () => {
 				{t('home.featuredProjectsHeading')}
 			</h2>
 
-			<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-				{featuredProjects.map((project, index) => (
-					<motion.a
-						key={project.name}
-						href={project.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						initial={{ opacity: 0, y: 12 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true, margin: '-50px' }}
-						transition={{ duration: 0.35, delay: index * 0.08 }}
-						className="bg-cursor-surface border border-cursor-border rounded-lg p-5 hover:border-cursor-border-emphasis transition-colors"
-					>
-						{project.coverImage ? (
-							<div className="relative w-full h-32 rounded-md overflow-hidden mb-4">
-								<Image
-									src={project.coverImage}
-									alt={project.name}
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, 33vw"
-								/>
-							</div>
-						) : null}
-						<h3 className="text-base font-semibold text-cursor-text mb-2">{project.name}</h3>
-						<p className="text-sm text-cursor-text-muted leading-relaxed mb-3">{project.description}</p>
-						<p className="text-xs text-cursor-text-faint">
-							{t('home.projectBy')} {project.author || t('home.communityBuilder')}
-						</p>
-					</motion.a>
-				))}
-			</div>
+			{featuredProjects.length > 0 ? (
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+					{featuredProjects.map((project, index) => (
+						<motion.a
+							key={project.name}
+							href={project.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							initial={{ opacity: 0, y: 12 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: '-50px' }}
+							transition={{ duration: 0.35, delay: index * 0.08 }}
+							className="bg-cursor-surface border border-cursor-border rounded-lg p-5 hover:border-cursor-border-emphasis transition-colors"
+						>
+							{project.coverImage ? (
+								<div className="relative w-full h-32 rounded-md overflow-hidden mb-4">
+									<Image
+										src={project.coverImage}
+										alt={project.name}
+										fill
+										className="object-cover"
+										sizes="(max-width: 768px) 100vw, 33vw"
+									/>
+								</div>
+							) : null}
+							<h3 className="text-base font-semibold text-cursor-text mb-2">{project.name}</h3>
+							<p className="text-sm text-cursor-text-muted leading-relaxed mb-3">{project.description}</p>
+							<p className="text-xs text-cursor-text-faint">
+								{t('home.projectBy')} {project.author || t('home.communityBuilder')}
+							</p>
+						</motion.a>
+					))}
+				</div>
+			) : null}
 
 			<div className="mt-6">
 				<a

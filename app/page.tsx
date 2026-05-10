@@ -52,8 +52,12 @@ const Home: React.FC = () => {
 				<AmbassadorSection />
 				<SectionDivider />
 				<FeaturedProjectsSection />
-				<SectionDivider />
-				<UpcomingEvents />
+				{upcomingEvents.length > 0 ? (
+					<>
+						<SectionDivider />
+						<UpcomingEvents />
+					</>
+				) : null}
 				<SectionDivider />
 				<PastEvents />
 				<SectionDivider />
