@@ -2,6 +2,15 @@ import { CursorEvent } from '@/lib/types';
 
 export const events: CursorEvent[] = [
 	{
+		id: 'cursor-meetup-trento-june-2026',
+		title: 'Cursor Meetup Trento',
+		date: '2026-06-11',
+		displayDate: 'June 11, 2026',
+		location: 'Afliant, Trento, Italy',
+		lumaUrl: 'https://luma.com/7rcm3za3',
+		status: 'upcoming',
+	},
+	{
 		id: 'cursor-meetup-trento-1',
 		title: 'Cursor Meetup Trento #1',
 		date: '2026-01-28',
